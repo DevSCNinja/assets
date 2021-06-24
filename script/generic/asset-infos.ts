@@ -374,14 +374,15 @@ function parseDiscord(url: string, handle: string): string {
     if (url.startsWith('https://discord.com/')) {
         return url.substring('https://discord.com/'.length);
     }
+    // GG is for invite
     if (url.startsWith('https://discord.gg/')) {
-        return url.substring('https://discord.gg/'.length);
+        return 'invite/' + url.substring('https://discord.gg/'.length);
     }
     if (url === 'https://monetaryunit.org/discord') {
-        return 'dpB3XF7hSw';
+        return 'invite/dpB3XF7hSw';
     }
     if (url === 'https://discord.conceal.network') {
-        return 'YbpHVSd';
+        return 'invite/YbpHVSd';
     }
     handle = safeTrim(handle);
     if (handle) {
