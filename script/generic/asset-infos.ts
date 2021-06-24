@@ -689,14 +689,33 @@ function isAssetInfoOK(chain: string, address: string, errors: string[], warning
         if (links.length >= 3) {
             console.log('links:', JSON.stringify(links, null, '  '));
         }
-        /*
+        // Extend info with links
         if (links.length > 0) {
-            // extend info with links
-            info['links'] = links;
+            if (!Object.prototype.hasOwnProperty.call(info, 'links')) {
+                info['links'] = links;
+            } else {
+                // merge existing and new links
+                //console.log('merge existing and new links', info['links'].reduce(function(x, e) {return x + e.name + ',';}, ''), links.reduce(function(x, e) {return x + e.name + ',';}, ''));
+                // remove the ones to be added
+                const newLinks = [];
+                for (let idx = 0; idx < info['links'].length; idx++) {
+                    const iname = info['links'][idx]['name'];
+                    if (!links.find(e => e['name'] === iname)) {
+                        newLinks.push(info['links'][idx]);
+                    }
+                }
+                //console.log(`${newLinks.length} old ones kept`);
+                // Add new ones
+                for (let idx = 0; idx < links.length; idx++) {
+                    newLinks.push(links[idx]);
+                }
+                //console.log(`${newLinks.length} after adding new ones`);
+                info['links'] = newLinks;
+            }
             //console.log('new info:', JSON.stringify(info, null, '  '));
+            
             fixedInfo = info;
         }
-        */
     }
 
     const [hasAllKeys, msg1] = isAssetInfoHasAllKeys(info, assetInfoPath);
