@@ -119,12 +119,12 @@ function isAssetInfoValid(info: unknown, path: string, address: string, chain: s
 }
 
 // return error, warning
-function isInfoLinksValid(links: any, path: string, address: string, chain: string): [string, string] {
+function isInfoLinksValid(links: unknown, path: string, address: string, chain: string): [string, string] {
     if (!Array.isArray(links)) {
-        return [`Links must be an array '${JSON.stringify(links)}'`, ""];
+        return [`Links must be an array '${JSON.stringify(links)}' '${path}' '${address}' '${chain}'`, ""];
     }
-    for (var idx = 0; idx < links.length; idx++) {
-        const f: any = links[idx];
+    for (let idx = 0; idx < links.length; idx++) {
+        const f = links[idx];
         const fname = f['name'];
         if (!fname) {
             return [`Field name missing '${JSON.stringify(f)}'`, ""];
@@ -132,6 +132,12 @@ function isInfoLinksValid(links: any, path: string, address: string, chain: stri
         const furl = f['url'];
         if (!fname) {
             return [`Field url missing '${JSON.stringify(f)}'`, ""];
+        }
+        // Check there are no other fields
+        for (const f2 in f) {
+            if (f2 !== 'name' && f2 !== 'url') {
+                return [`Invalid field '${f2}' in links '${JSON.stringify(f)}', path ${path}`, ""];
+            }
         }
         if (!Object.prototype.hasOwnProperty.call(linksKeys, fname)) {
             return [`Not supported field in links '${fname}'.  Supported keys: ${linksKeysString}`, ""];
@@ -151,7 +157,7 @@ function isInfoLinksValid(links: any, path: string, address: string, chain: stri
                 return [`Links field '${fname}': '${furl}' must include '${linksMediumContains}'.  Supported keys: ${linksKeysString}`, ""];
             }
         }
-    };
+    }
     return ["", ""];
 }
 
@@ -744,6 +750,11 @@ function isAssetInfoOK(chain: string, address: string, errors: string[], warning
         }
         if (warn3) {
             warnings.push(warn3);
+        }
+    }
+    if (Object.prototype.hasOwnProperty.call(info, 'socials')) {
+        if (!Object.prototype.hasOwnProperty.call(info, 'links') || !info['links']) {
+            errors.push(`'Socials' field is present, but there in no 'links' section.  Please migrate contents to links. (${chain} ${address})`);
         }
     }
 
