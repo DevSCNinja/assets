@@ -516,6 +516,63 @@ function isAssetInfoOK(chain: string, isCoin: boolean, address: string, errors: 
     let fixedInfo: unknown|null = null;
 
     if (!checkOnly) {
+        if (Object.prototype.hasOwnProperty.call(info, 'socials')) {
+            delete info['socials'];
+            fixedInfo = info;
+            console.log(`Removing 'socials' section, ${chain} ${address}`);
+        }
+
+        if (Object.prototype.hasOwnProperty.call(info, 'source_code')) {
+            let sc = info['source_code'].trim();
+            if (sc.startsWith('http://')) {
+                sc = 'https://' + sc.substring(7);
+                console.log('Change http prefix:', sc);
+            }
+            if (sc === '' || sc.startsWith('https://etherscan.io') || sc.startsWith('https://tronscan.io') || sc.startsWith('https://bscscan.com')) {
+                // empty sc, remove
+                delete info['source_code'];
+                fixedInfo = info;
+            } else {
+                if (!info['links']) {
+                    processError(`Source_code is present, but links is not, '${JSON.stringify(info)}'`);
+                } else {
+                    const ghNode = info['links'].find(n => n['name'] === 'github' || n['name'] === 'source_code');
+                    const gh = ghNode ? ghNode['url'] : null;
+                    //console.log('QQQ', sc.substring(sc.length - 5, sc.length));
+                    if (sc != gh) {
+                        processError(`Source_code is present, but it does not match links/github, '${sc}' '${gh}' '${JSON.stringify(info['links'])}'`);
+                    } else {
+                        delete info['source_code'];
+                        fixedInfo = info;
+                    }
+                }
+            }
+        }
+
+        if (Object.prototype.hasOwnProperty.call(info, 'whitepaper')) {
+            let wp = info['whitepaper'].trim();
+            if (wp === '') {
+                // empty, remove
+                delete info['whitepaper'];
+                fixedInfo = info;
+            } else {
+                if (!info['links']) {
+                    processError(`whitepaper is present, but links is not, '${JSON.stringify(info)}'`);
+                } else {
+                    const wplinksNode = info['links'].find(n => n['name'] === 'whitepaper');
+                    const wplinks = wplinksNode ? wplinksNode['url'] : null;
+                    if (wp != wplinks) {
+                        processError(`whitepaper is present, but it does not match links/whitepaper, '${wp}' '${wplinks}' '${JSON.stringify(info['links'])}'`);
+                    } else {
+                        delete info['whitepaper'];
+                        fixedInfo = info;
+                    }
+                }
+            }
+        }
+    }
+
+    if (!checkOnly) {
         // One-time transfer of social links to links
         var links: any = [];
         var github = '';
@@ -740,14 +797,6 @@ function isAssetInfoOK(chain: string, isCoin: boolean, address: string, errors: 
             //console.log('new info:', JSON.stringify(info, null, '  '));
             
             fixedInfo = info;
-        }
-    }
-
-    if (!checkOnly) {
-        if (Object.prototype.hasOwnProperty.call(info, 'socials')) {
-            delete info['socials'];
-            fixedInfo = info;
-            console.log(`Removing 'socials' section, ${chain} ${address}`);
         }
     }
 
