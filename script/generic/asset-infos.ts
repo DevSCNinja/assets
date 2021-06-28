@@ -743,6 +743,14 @@ function isAssetInfoOK(chain: string, isCoin: boolean, address: string, errors: 
         }
     }
 
+    if (!checkOnly) {
+        if (Object.prototype.hasOwnProperty.call(info, 'socials')) {
+            delete info['socials'];
+            fixedInfo = info;
+            console.log(`Removing 'socials' section, ${chain} ${address}`);
+        }
+    }
+
     const [hasAllKeys, msg1] = isAssetInfoHasAllKeys(info, assetInfoPath, isCoin);
     if (!hasAllKeys) {
         console.log(msg1);
