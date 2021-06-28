@@ -1,0 +1,153 @@
+
+> assets@1.0.0 check /Users/adam/tw/assets
+> ts-node ./script/entrypoint/check
+
+Running sanity checks...
+   Action 'Folders and Files' has 6 check steps
+-  XXX 'Repository root dir':  8 errors
+   XXX   'File ".DS_Store" should not be in root or added to predifined list'
+   XXX   'File ".vscode" should not be in root or added to predifined list'
+   XXX   'File "1.json" should not be in root or added to predifined list'
+   XXX   'File "SAVE" should not be in root or added to predifined list'
+   XXX   'File "adam" should not be in root or added to predifined list'
+   XXX   8 errors in total, omitting rest ...
+-  ✓ 'Chain folders are lowercase, contain only predefined list of files' OK
+-  ✓ 'Chain folders have logo, and correct size' OK
+-  !! 'Asset folders contain logo and info':  20 warnings
+   !!   'Missing info file for asset 'classic/0x2EB1D7785469FC5d478E59Ca09F66CBb9170C519' -- /Users/adam/tw/assets/blockchains/classic/assets/0x2EB1D7785469FC5d478E59Ca09F66CBb9170C519/info.json'
+   !!   'Missing info file for asset 'classic/0x5eB99507170F41bAA521cb71C9bCEa2a8A96827C' -- /Users/adam/tw/assets/blockchains/classic/assets/0x5eB99507170F41bAA521cb71C9bCEa2a8A96827C/info.json'
+   !!   'Missing info file for asset 'classic/0xE0B7927c4aF23765Cb51314A0E0521A9645F0E2A' -- /Users/adam/tw/assets/blockchains/classic/assets/0xE0B7927c4aF23765Cb51314A0E0521A9645F0E2A/info.json'
+   !!   'Missing info file for asset 'classic/0xa8d3847f8AE1e8ebfD5928D39A3B1aE5dA12A61f' -- /Users/adam/tw/assets/blockchains/classic/assets/0xa8d3847f8AE1e8ebfD5928D39A3B1aE5dA12A61f/info.json'
+   !!   'Missing info file for asset 'classic/0xd6dF0C579f2A65049a893fDaEC9fCE098CC19F87' -- /Users/adam/tw/assets/blockchains/classic/assets/0xd6dF0C579f2A65049a893fDaEC9fCE098CC19F87/info.json'
+   !!   20 warnings in total, omitting rest ...
+-  ✓ 'Asset folders contain only predefined set of files' OK
+-  ✓ 'Dapps folders contain only .png files, with all lowercase names' OK
+   Action 'Asset Infos' has 22 check steps
+-  XXX 'Token info.json's for chain binance':  3 errors
+   XXX   'Links field 'reddit': 'https://reddit.com/user/DeFiForYou' must start with 'https://redditX.com/'.  Supported keys: github,whitepaper,twitter,telegram,telegram_news,medium,discord,reddit,facebook,youtube,coinmarketcap,coingecko,blog,forum,docs,source_code,'
+   XXX   'Links field 'reddit': 'https://reddit.com/u/payrue' must start with 'https://redditX.com/'.  Supported keys: github,whitepaper,twitter,telegram,telegram_news,medium,discord,reddit,facebook,youtube,coinmarketcap,coingecko,blog,forum,docs,source_code,'
+   XXX   'Links field 'reddit': 'https://reddit.com/r/trustapp' must start with 'https://redditX.com/'.  Supported keys: github,whitepaper,twitter,telegram,telegram_news,medium,discord,reddit,facebook,youtube,coinmarketcap,coingecko,blog,forum,docs,source_code,'
+-  ✓ 'Token info.json's for chain classic' OK
+-  ✓ 'Token info.json's for chain eos' OK
+-  XXX 'Token info.json's for chain ethereum':  42 errors
+   XXX   'Links field 'reddit': 'https://reddit.com/r/Allianceblock/' must start with 'https://redditX.com/'.  Supported keys: github,whitepaper,twitter,telegram,telegram_news,medium,discord,reddit,facebook,youtube,coinmarketcap,coingecko,blog,forum,docs,source_code,'
+   XXX   'Links field 'reddit': 'https://reddit.com/r/abyssfinance' must start with 'https://redditX.com/'.  Supported keys: github,whitepaper,twitter,telegram,telegram_news,medium,discord,reddit,facebook,youtube,coinmarketcap,coingecko,blog,forum,docs,source_code,'
+   XXX   'Links field 'reddit': 'https://reddit.com/r/Peculium/' must start with 'https://redditX.com/'.  Supported keys: github,whitepaper,twitter,telegram,telegram_news,medium,discord,reddit,facebook,youtube,coinmarketcap,coingecko,blog,forum,docs,source_code,'
+   XXX   'Links field 'reddit': 'https://reddit.com/r/GoGalaGames' must start with 'https://redditX.com/'.  Supported keys: github,whitepaper,twitter,telegram,telegram_news,medium,discord,reddit,facebook,youtube,coinmarketcap,coingecko,blog,forum,docs,source_code,'
+   XXX   'Links field 'reddit': 'https://reddit.com/r/FortKnoxster/' must start with 'https://redditX.com/'.  Supported keys: github,whitepaper,twitter,telegram,telegram_news,medium,discord,reddit,facebook,youtube,coinmarketcap,coingecko,blog,forum,docs,source_code,'
+   XXX   42 errors in total, omitting rest ...
+-  ✓ 'Token info.json's for chain gochain' OK
+-  ✓ 'Token info.json's for chain kava' OK
+-  ✓ 'Token info.json's for chain neo' OK
+-  ✓ 'Token info.json's for chain nuls' OK
+-  ✓ 'Token info.json's for chain ontology' OK
+-  ✓ 'Token info.json's for chain poa' OK
+-  XXX 'Token info.json's for chain smartchain':  34 errors
+   XXX   'Links field 'reddit': 'https://reddit.com/r/MarioBrostoken/' must start with 'https://redditX.com/'.  Supported keys: github,whitepaper,twitter,telegram,telegram_news,medium,discord,reddit,facebook,youtube,coinmarketcap,coingecko,blog,forum,docs,source_code,'
+   XXX   'Links field 'reddit': 'https://reddit.com/r/SafeToken/' must start with 'https://redditX.com/'.  Supported keys: github,whitepaper,twitter,telegram,telegram_news,medium,discord,reddit,facebook,youtube,coinmarketcap,coingecko,blog,forum,docs,source_code,'
+   XXX   'Links field 'reddit': 'https://reddit.com/r/sporeproject' must start with 'https://redditX.com/'.  Supported keys: github,whitepaper,twitter,telegram,telegram_news,medium,discord,reddit,facebook,youtube,coinmarketcap,coingecko,blog,forum,docs,source_code,'
+   XXX   'Links field 'reddit': 'https://reddit.com/r/RhymeSickCoin/new/' must start with 'https://redditX.com/'.  Supported keys: github,whitepaper,twitter,telegram,telegram_news,medium,discord,reddit,facebook,youtube,coinmarketcap,coingecko,blog,forum,docs,source_code,'
+   XXX   'Links field 'reddit': 'https://reddit.com/r/CLEANOCEAN/' must start with 'https://redditX.com/'.  Supported keys: github,whitepaper,twitter,telegram,telegram_news,medium,discord,reddit,facebook,youtube,coinmarketcap,coingecko,blog,forum,docs,source_code,'
+   XXX   34 errors in total, omitting rest ...
+-  ✓ 'Token info.json's for chain solana' OK
+-  ✓ 'Token info.json's for chain terra' OK
+-  ✓ 'Token info.json's for chain theta' OK
+-  ✓ 'Token info.json's for chain thundertoken' OK
+-  ✓ 'Token info.json's for chain tomochain' OK
+-  ✓ 'Token info.json's for chain tron' OK
+-  ✓ 'Token info.json's for chain vechain' OK
+-  ✓ 'Token info.json's for chain wanchain' OK
+-  ✓ 'Token info.json's for chain waves' OK
+-  ✓ 'Token info.json's for chain xdai' OK
+-  XXX 'Coin info.json's':  66 errors
+   XXX   'Links field 'reddit': 'https://reddit.com/r/Aeternity' must start with 'https://redditX.com/'.  Supported keys: github,whitepaper,twitter,telegram,telegram_news,medium,discord,reddit,facebook,youtube,coinmarketcap,coingecko,blog,forum,docs,source_code,'
+   XXX   'Links field 'reddit': 'https://reddit.com/r/AionNetwork' must start with 'https://redditX.com/'.  Supported keys: github,whitepaper,twitter,telegram,telegram_news,medium,discord,reddit,facebook,youtube,coinmarketcap,coingecko,blog,forum,docs,source_code,'
+   XXX   'Links field 'reddit': 'https://reddit.com/r/AlgorandOfficial' must start with 'https://redditX.com/'.  Supported keys: github,whitepaper,twitter,telegram,telegram_news,medium,discord,reddit,facebook,youtube,coinmarketcap,coingecko,blog,forum,docs,source_code,'
+   XXX   'Links field 'reddit': 'https://reddit.com/r/ArkEcosystem' must start with 'https://redditX.com/'.  Supported keys: github,whitepaper,twitter,telegram,telegram_news,medium,discord,reddit,facebook,youtube,coinmarketcap,coingecko,blog,forum,docs,source_code,'
+   XXX   'Links field 'reddit': 'https://reddit.com/r/bandprotocol/' must start with 'https://redditX.com/'.  Supported keys: github,whitepaper,twitter,telegram,telegram_news,medium,discord,reddit,facebook,youtube,coinmarketcap,coingecko,blog,forum,docs,source_code,'
+   XXX   66 errors in total, omitting rest ...
+   Action 'Ethereum forks' has 8 check steps
+     Found 6493 assets for chain ethereum
+-  ✓ 'Folder structure for chain ethereum (ethereum fork)' OK
+     Found 84 assets for chain classic
+-  ✓ 'Folder structure for chain classic (ethereum fork)' OK
+     Found 3 assets for chain poa
+-  ✓ 'Folder structure for chain poa (ethereum fork)' OK
+     Found 5 assets for chain tomochain
+-  ✓ 'Folder structure for chain tomochain (ethereum fork)' OK
+     Found 6 assets for chain gochain
+-  ✓ 'Folder structure for chain gochain (ethereum fork)' OK
+     Found 6 assets for chain wanchain
+-  ✓ 'Folder structure for chain wanchain (ethereum fork)' OK
+     Found 14 assets for chain thundertoken
+-  ✓ 'Folder structure for chain thundertoken (ethereum fork)' OK
+     Found 1304 assets for chain smartchain
+-  ✓ 'Folder structure for chain smartchain (ethereum fork)' OK
+- ✓ Action 'Ethereum forks' OK, all 8 steps
+   Action 'Logo sizes' has 1 check steps
+Checking all logos for size ...
+Checking logos completed, 9027 logos checked, 0 too large, 0 logos updated
+-  ✓ 'Check that logos are not too large' OK
+- ✓ Action 'Logo sizes' OK, all 1 steps
+   Action 'Validators' has 9 check steps
+-  ✓ 'Make sure tests added for new staking chain' OK
+-  ✓ 'Make sure chain tezos has valid list file, has logo' OK
+-  ✓ 'Make sure chain cosmos has valid list file, has logo' OK
+-  ✓ 'Make sure chain iotex has valid list file, has logo' OK
+-  ✓ 'Make sure chain tron has valid list file, has logo' OK
+-  ✓ 'Make sure chain waves has valid list file, has logo' OK
+-  ✓ 'Make sure chain kava has valid list file, has logo' OK
+-  ✓ 'Make sure chain terra has valid list file, has logo' OK
+-  ✓ 'Make sure chain binance has valid list file, has logo' OK
+- ✓ Action 'Validators' OK, all 9 steps
+   Action 'Json files' has 1 check steps
+-  ✓ 'Check all JSON files to have valid content' OK
+- ✓ Action 'Json files' OK, all 1 steps
+   Action 'Binance chain' has 1 check steps
+Retrieving token infos
+Using 506 assets
+     196 assets checked.
+-  ✓ 'Binance chain; assets must exist on chain' OK
+- ✓ Action 'Binance chain' OK, all 1 steps
+   Action 'Cosmos chain' has 1 check steps
+-  ✓ 'Cosmos validator assets must have correct format' OK
+- ✓ Action 'Cosmos chain' OK, all 1 steps
+   Action 'Kava chain' has 1 check steps
+-  ✓ 'Kava validator assets must have correct format' OK
+- ✓ Action 'Kava chain' OK, all 1 steps
+   Action 'Terra chain' has 1 check steps
+-  ✓ 'Terra validator assets must have correct format' OK
+- ✓ Action 'Terra chain' OK, all 1 steps
+   Action 'Tezos' has 1 check steps
+-  ✓ 'Tezos validator assets must have correct format' OK
+- ✓ Action 'Tezos' OK, all 1 steps
+   Action 'Tron chain' has 2 check steps
+-  ✓ 'Tron assets should be TRC10 or TRC20, logo of correct size' OK
+-  ✓ 'Tron validator assets must have correct format' OK
+- ✓ Action 'Tron chain' OK, all 2 steps
+   Action 'Waves chain' has 1 check steps
+-  ✓ 'Waves validator assets must have correct format' OK
+- ✓ Action 'Waves chain' OK, all 1 steps
+All sanity checks done, found 23 errors, 5 warnings
+Running consistency checks...
+   Action 'Allowlists' has 18 check steps
+-  ✓ 'Allowlist and denylist for ethereum should be consistent with assets' OK
+-  ✓ 'Allowlist and denylist for classic should be consistent with assets' OK
+-  ✓ 'Allowlist and denylist for poa should be consistent with assets' OK
+-  ✓ 'Allowlist and denylist for tomochain should be consistent with assets' OK
+-  ✓ 'Allowlist and denylist for gochain should be consistent with assets' OK
+-  ✓ 'Allowlist and denylist for wanchain should be consistent with assets' OK
+-  ✓ 'Allowlist and denylist for thundertoken should be consistent with assets' OK
+-  ✓ 'Allowlist and denylist for smartchain should be consistent with assets' OK
+-  ✓ 'Allowlist and denylist for binance should be consistent with assets' OK
+-  ✓ 'Allowlist and denylist for tron should be consistent with assets' OK
+-  ✓ 'Allowlist and denylist for terra should be consistent with assets' OK
+-  ✓ 'Allowlist and denylist for neo should be consistent with assets' OK
+-  ✓ 'Allowlist and denylist for nuls should be consistent with assets' OK
+-  ✓ 'Allowlist and denylist for vechain should be consistent with assets' OK
+-  ✓ 'Allowlist and denylist for ontology should be consistent with assets' OK
+-  ✓ 'Allowlist and denylist for theta should be consistent with assets' OK
+-  ✓ 'Allowlist and denylist for eos should be consistent with assets' OK
+-  ✓ 'Allowlist and denylist for solana should be consistent with assets' OK
+- ✓ Action 'Allowlists' OK, all 18 steps
+All consistency checks done, found 0 errors, 0 warnings
