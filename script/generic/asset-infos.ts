@@ -147,7 +147,7 @@ function isInfoLinksValid(links: unknown, path: string, address: string, chain: 
             return [`Field name missing '${JSON.stringify(f)}'`, ""];
         }
         const furl = f['url'];
-        if (!fname) {
+        if (!furl) {
             return [`Field url missing '${JSON.stringify(f)}'`, ""];
         }
         // Check there are no other fields
@@ -570,6 +570,28 @@ function isAssetInfoOK(chain: string, isCoin: boolean, address: string, errors: 
                 }
             }
         }
+
+        if (Object.prototype.hasOwnProperty.call(info, 'white_paper')) {
+            let wp = info['white_paper'].trim();
+            if (wp === '') {
+                // empty, remove
+                delete info['white_paper'];
+                fixedInfo = info;
+            } else {
+                if (!info['links']) {
+                    processError(`white_paper is present, but links is not, '${JSON.stringify(info)}'`);
+                } else {
+                    const wplinksNode = info['links'].find(n => n['name'] === 'whitepaper');
+                    const wplinks = wplinksNode ? wplinksNode['url'] : null;
+                    if (wp != wplinks) {
+                        processError(`white_paper is present, but it does not match links/whitepaper, '${wp}' '${wplinks}' '${JSON.stringify(info['links'])}'`);
+                    } else {
+                        delete info['white_paper'];
+                        fixedInfo = info;
+                    }
+                }
+            }
+        }
     }
 
     if (!checkOnly) {
@@ -610,7 +632,13 @@ function isAssetInfoOK(chain: string, isCoin: boolean, address: string, errors: 
         if (info['whitepaper']) {
             links.push({
                 name: 'whitepaper',
-                url: info['whitepaper']
+                url: info['whitepaper'].trim()
+            });
+        }
+        if (info['white_paper']) {
+            links.push({
+                name: 'whitepaper',
+                url: info['white_paper'].trim()
             });
         }
         if (Object.prototype.hasOwnProperty.call(info, 'socials')) {
